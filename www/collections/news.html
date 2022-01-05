@@ -1,0 +1,38 @@
+<Layout>
+  <header class="section wysiwyg blog__header {{unless this.header_image "blog__header--no-image"}}">
+    <span class="blog__collections-meta">
+      {{#each this.collection as |article|}}
+        {{article}}{{unless @last ', '}}
+      {{/each}}
+    </span>
+    <h1 class="blog__title">{{this.title}}</h1>
+    {{#if this.subtitle}}
+      <h2 class="blog__subtitle">{{this.subtitle}}</h2>
+    {{/if}}
+    <time class="blog__timestamp">{{date @page.createdAt}}</time>
+    {{#if this.header_image}}
+      <img src="{{this.header_image type=image priority=1}}" class="blog__header-image">
+    {{/if}}
+  </header>
+
+  <article class="section wysiwyg wysiwyg--reader blog__body">
+    {{this.body type=html images=true}}
+  </article>
+
+  <aside class="section blog__more">
+    <ul class="posts">
+      {{#collection news limit=5 as |post|}}
+        <li class="post">
+          <a href="{{@record.slug}}">
+            <img class="post__image" src="{{post.header_image}}">
+            <h2 class="post__title">{{post.title}}</h2>
+            {{#if post.subtitle}}
+              <h3 class="post__subtitle">{{post.subtitle}}</h3>
+            {{/if}}
+            <time class="post__timestamp">{{date @record.createdAt}}</time>
+          </a>
+        </li>
+      {{/collection}}
+    </ul>
+  </aside>
+</Layout>

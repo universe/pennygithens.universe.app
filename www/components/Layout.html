@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    {{#if @page.redirectUrl}}
+      <meta http-equiv="refresh" content="0;url={{@page.redirectUrl}}" />
+      <style>#body { display: none !important; }</style>
+    {{/if}}
+
+    <title>{{if @page.title @page.title general.title}}</title>
+    <meta name="description" content="{{if @page.description @page.description general.description}}" />
+    <meta name="keywords" content="California,San Francisco,Democrat,State Senate,Election">
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://{{@site.domain}}{{@page.slug}}" />
+    <meta property="og:site_name" content="{{general.title}}" />
+    <meta property="og:title" content="{{if @meta.title @meta.title general.title}}" />
+    <meta property="og:description" content="{{if @meta.description @meta.description general.description}}" />
+    {{#if @meta.socialImage}}
+      <meta property="og:image" content="https://{{@site.domain}}{{@meta.socialImage type=image}}" />
+      <meta name="twitter:card" content="summary_large_image" />
+    {{else}}
+      {{#if social.socialImage}}
+        <meta property="og:image" content="https://{{@site.domain}}{{social.socialImage type=image}}" />
+        <meta name="twitter:card" content="summary_large_image" />
+      {{/if}}
+    {{/if}}
+
+    {{!-- <meta name="twitter:site" content="@website-username" /> --}}
+
+    <meta property="fb:app_id" content="457089805150100" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{general.google_tracking_id}}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('require', 'linkid');
+      gtag('config', "{{general.google_tracking_id}}");
+    </script>
+
+    <link rel="stylesheet" href="https://use.typekit.net/esu5qxl.css" />
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/site.css" />
+  </head>
+  <body>
+    <div id="body">
+      <nav class="nav">
+
+        <button class="nav__menu-button" id="menu-button">MENU</button>
+
+        <a href="/" class="logo nav__logo">
+          {{#if general.logo_image}}<img src="{{general.logo_image type=image}}" class="logo__image">{{/if}}
+        </a>
+
+        <ul class="nav__links">
+          {{~#each @navigation as |page|~}}
+            <li class="nav__item">
+              <a href="{{page.url}}" class="nav__link {{if page.isActive "active"}}">{{page.name}}</a>
+              {{#if page.hasSubNav}}
+                <ul class="nav__sub-menu">
+                  {{#each page.subNav as |record|}}{{#if record.url}}<li><a href="{{record.url}}">{{record.name}}</a></li>{{/if}}{{/each}}
+                </ul>
+              {{/if}}
+            </li>
+          {{/each~}}
+        </ul>
+
+        <ul class="nav__links">
+
+          <li class="nav__social">
+            <ul class="social">
+              {{#if social.facebook}}<li class="social__icon"><a class="social__link social-icon" href="{{social.facebook type=text}}" target="_blank">Facebook Profile</a></li>{{/if}}
+              {{#if social.twitter}}<li class="social__icon"><a class="social__link social-icon" href="{{social.twitter type=text}}" target="_blank">Twitter Profile</a></li>{{/if}}
+              {{#if social.instagram}}<li class="social__icon"><a class="social__link social-icon" href="{{social.instagram type=text}}" target="_blank">Instagram Page</a></li>{{/if}}
+            </ul>
+          </li>
+
+          {{#link general.donation_link as |cta|}}
+            <li class="nav__donate">
+              <a href="{{cta.url}}" class="donate button">{{cta.name}}</a>
+            </li>
+          {{/link}}
+
+          {{#link general.get_involved as |cta|}}
+            <li class="nav__get-involved">
+              <a href="{{cta.url}}" class="donate button">{{cta.name}}</a>
+            </li>
+          {{/link}}
+        </ul>
+      </nav>
+
+      <main class="main">
+
+        {{@yield}}
+
+        <footer class="footer">
+          <ul class="footer__nav">
+            <li class="footer__mailchimp">
+              <Mailchimp />
+            </li>
+            {{#link general.donation_link as |cta|}}
+              <li class="footer__donate">
+                <a href="{{cta.url}}" class="donate button">{{cta.name}}</a>
+              </li>
+            {{/link}}
+            <li class="footer__social">
+              <ul class="nav__social">
+                <li>{{footer.social_cta default="Want to get in touch or have a question?"}}</li>
+                {{#if social.email}}<li class="nav__social--email"><a href="mailto:{{social.email}}">{{social.email}}</a></li>{{/if}}
+                {{#if social.facebook}}<li class="nav__social--facebook"><a href="{{social.facebook type=text}}" class="social-icon" target="_blank">Facebook Profile</a></li>{{/if}}
+                {{#if social.twitter}}<li class="nav__social--twitter"><a href="{{social.twitter type=text}}" class="social-icon" target="_blank">Twitter Profile</a></li>{{/if}}
+                {{#if social.instagram}}<li class="nav__social--instagram"><a href="{{social.instagram type=text}}" class="social-icon" target="_blank">Instagram Page</a></li>{{/if}}
+              </ul>
+            </li>
+            {{#if footer.disclosures}}
+              <li class="footer__disclosures wysiwyg">
+                {{footer.disclosures required=true type=html images=false}}
+              </li>
+            {{/if}}
+          </ul>
+
+          <section class="footer__universe">
+            <a href="/" class="logo nav__logo">
+              {{#if general.logo_image}}<img src="{{general.logo_image type=image}}" class="logo__image">{{/if}}
+            </a>
+            <ul class="footer__universe-links">
+              <li><a href="#" class="footer__universe-link">Terms and Conditions</a></li>
+              <li><a href="#" class="footer__universe-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer__universe-link">Accessability</a></li>
+            </ul>
+
+            <a href="https://universe.app">
+              <video width="240" height="180" id="video-logo" muted="muted" poster="/videos/logo.png" playsinline="true" style="background-color: transparent !important; transform: translateY(-10px);">
+                <source src="/videos/logo.mp4" type="video/mp4">
+                <img src="/videos/logo.png" width="240px" height="180px" />
+              </video>
+            </a>
+          
+            <script>
+              const media = document.getElementById('video-logo');
+              let playing = false;
+              let shouldReset = false;
+              let shouldPause = false;
+              let pause = null;
+              media.addEventListener('play', () => {
+                if (playing) { return; }
+                playing = true;
+                pause = clearInterval(pause);
+                if (!shouldPause || shouldReset) { return; }
+                if (media.currentTime * 1000 >= (((media.duration / 2) * 1000))) { return; }
+                pause = setInterval(() => {
+                  if (shouldReset) { pause = clearInterval(pause); return; }
+                  if (media.currentTime * 1000 >= (((media.duration / 2) * 1000) - 30)) {
+                    pause = clearInterval(pause);
+                    media.pause();
+                  }
+                }, 10);
+              });
+
+              media.addEventListener('pause', () => {
+                playing = false;
+              });
+              media.addEventListener('ended', async () => {
+                  playing = false;
+                  shouldReset = false
+                  media.pause();
+                  media.currentTime == 0;
+                  await media.play();
+                  media.pause();
+              });
+
+              async function startVideo(evt) {
+                shouldReset = false;
+                if (playing) { return; }
+                media.pause();
+                media.currentTime == 0;
+                shouldPause = true;
+                await media.play();
+              }
+
+              async function stopVideo(evt) {
+                shouldReset = true;
+                if (!playing) { await media.play(); }
+              }
+          
+              media.addEventListener('mouseover', startVideo);
+              media.addEventListener('touchstart', startVideo);
+              media.addEventListener('mouseout', stopVideo);
+              media.addEventListener('touchend', stopVideo);
+            </script>
+          </section>
+
+        </footer>
+
+      </main>
+    </div>
+    <script>
+      function onResize(){
+        const width = document.body.getBoundingClientRect().width;
+        document.getElementById('body').scrollLeft = width < 580 ? width : 0;
+      }
+      window.addEventListener('resize', onResize);
+      onResize();
+    </script>
+    <script src="/javascripts/site.js"></script>
+  </body>
+</html>

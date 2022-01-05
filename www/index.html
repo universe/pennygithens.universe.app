@@ -1,0 +1,81 @@
+<Layout>
+  <header class="section home__header">
+    <img src="{{this.header_image type=image}}" class="home__header-image">
+    <section class="home__header-content">
+      <h1 class="header__title">{{this.title required=true}}</h1>
+      {{#if this.subtitle}}<h2 class="header__subtitle">{{this.subtitle}}</h2>{{/if}}
+      <div class="home__ctas">
+        <Mailchimp />
+        {{#link general.donation_link as |cta|}}
+          <span class="home__ctas-or">or</span>
+          <a href="{{cta.url}}" class="donate button">{{cta.name}}</a>
+        {{/link}}
+      </div>
+    </section>
+  </header>
+
+  {{#if (this.show_about type=choice help="Show about section on the homepage" default=true)}}
+    <section class="section home__about">
+      <img src="{{this.about_image type=image}}" class="home__about-image">
+      <div class="home__about-text wysiwyg">
+        <h2 class="home__about-title">{{this.about_title default="About"}}</h2>
+        {{this.about_body type=html images=true}}
+      </div>
+    </section>
+  {{/if}}
+
+  {{#if (this.show_endorsements type=choice help="Show endorsements section on the homepage" default=true)}}
+    <section class="section home__endorsements">
+
+      <h2 class="home__endorsements-title">{{this.endorsements_title default="Endorsements"}}</h2>
+
+      {{#if this.endorsements__description}}
+        <div class="home__endorsements-description wysiwyg">
+          {{this.endorsements__description type=html images=true}}
+        </div>
+      {{/if}}
+
+      <ul class="endorsements">
+        {{#collection endorsements sortable=true as |endorsement|}}
+          <li class="endorsement {{if (endorsement.for_identification_only type=choice help="If title is strictly for identification purposes") "endorsement--id-only"}}">
+            <img src="{{endorsement.image type=image}}" class="endorsement__image">
+            <h3 class="endorsement__name">{{endorsement.name}}</h3>
+            {{#if endorsement.title}}<h4 class="endorsement__title" aria-describedby={{if endorsement.for_identification_only "for-id-only-desc"}}>{{endorsement.title}}</h4>{{/if}}
+            {{#if endorsement.quote}}<p class="endorsement__quote">{{endorsement.quote long=true}}</p>{{/if}}
+          </li>
+        {{/collection}}
+      </ul>
+
+      <aside id="for-id-only-desc">for identification purposes only</aside>
+
+      {{#link this.endorsements_cta as |cta|}}
+        <a href="{{cta.url}}" class="button home__endorsements-cta">{{cta.name}}</a>
+      {{/link}}
+
+    </section>
+  {{/if}}
+
+  {{#if (this.show_issues type=choice help="Show issues section on the homepage" default=true)}}
+    <section class="section home__issues">
+      {{#if this.issues__description}}
+        <div class="home__issues-description wysiwyg">
+          {{this.issues__description type=html images=true}}
+        </div>
+      {{/if}}
+      <ul class="issues">
+        {{#collection issues sortable=true as |issue|}}
+          <li class="issue">
+            <img src="{{issue.image type=image}}" class="issue__image">
+            <h3 class="issue__name">{{issue.name}}</h3>
+            <div class="issue__description">{{issue.description type=html}}</div>
+          </li>
+        {{/collection}}
+      </ul>
+
+      {{#link this.issues_cta as |cta|}}
+        <a href="{{cta.url}}" class="button">{{cta.name}}</a>
+      {{/link}}
+    </section>
+  {{/if}}
+
+</Layout>

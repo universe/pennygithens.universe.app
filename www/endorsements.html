@@ -1,0 +1,77 @@
+<Layout>
+  <header class="section endorsements__header">
+    <img src="{{this.header_image type=image}}" class="endorsements__header-image">
+    <section class="endorsements__header-content wysiwyg">
+      <h1>{{this.title}}</h1>
+      {{#if this.subtitle}}<h2>{{this.subtitle}}</h2>{{/if}}
+      {{this.header_text type=html images=true}}
+    </section>
+  </header>
+
+  <section class="section endorsements__body">
+      {{#collate endorsements key="type" default="General Endorsements" as |type|}}
+        <h3 class="endorsements__section-title">{{type.name}}</h3>
+        <ul class="endorsements">
+          {{~#collection endorsements as |endorsement|~}}
+            {{~#if endorsement.image~}}
+              {{~#if (eq endorsement.type type.value)~}}
+                <li
+                  class="
+                    endorsement
+                    {{unless endorsement.image "endorsement--no-image"}}
+                    {{if (endorsement.for_identification_only type=choice priority=5 default="General Endorsements" help="If title is strictly for identification purposes") "endorsement--id-only"}}
+                  "
+                  data-type="{{endorsement.type
+                    type=choice
+                    input=dropdown
+                    default="General Endorsements"
+                    options="Organizations,Labor,Elected Officials,Legal Community,Community Leaders"
+                    priority=4
+                    custom=true
+                  }}"
+                >
+                  {{#if endorsement.image}}
+                    <img src="{{endorsement.image type=image priority=1}}" class="endorsement__image">
+                  {{/if}}
+                  <h4 class="endorsement__name">{{endorsement.name priority=2}}</h4>
+                  {{#if endorsement.title}}<h5 class="endorsement__title" aria-describedby={{if endorsement.for_identification_only "for-id-only-desc"}}>{{endorsement.title priority=3}}</h5>{{/if}}
+                  {{#if endorsement.quote}}<p class="endorsement__quote">{{endorsement.quote long=true priority=6}}</p>{{/if}}
+                </li>
+              {{~/if~}}
+            {{~/if~}}
+          {{~/collection~}}
+          </ul>
+          <ul class="endorsements">
+          {{~#collection endorsements as |endorsement|~}}
+            {{~#unless endorsement.image~}}
+              {{~#if (eq endorsement.type type.value)~}}
+                <li
+                  class="
+                    endorsement
+                    {{unless endorsement.image "endorsement--no-image"}}
+                    {{if (endorsement.for_identification_only type=choice priority=5 default="General Endorsements" help="If title is strictly for identification purposes") "endorsement--id-only"}}
+                  "
+                  data-type="{{endorsement.type
+                    type=choice
+                    input=dropdown
+                    default="General Endorsements"
+                    options="Organizations,Labor,Elected Officials,Legal Community,Community Leaders"
+                    priority=4
+                    custom=true
+                  }}"
+                >
+                  {{#if endorsement.image}}
+                    <img src="{{endorsement.image type=image priority=1}}" class="endorsement__image">
+                  {{/if}}
+                  <h4 class="endorsement__name">{{endorsement.name priority=2}}</h4>
+                  {{#if endorsement.title}}<h5 class="endorsement__title" aria-describedby={{if endorsement.for_identification_only "for-id-only-desc"}}>{{endorsement.title priority=3}}</h5>{{/if}}
+                  {{#if endorsement.quote}}<p class="endorsement__quote">{{endorsement.quote long=true priority=6}}</p>{{/if}}
+                </li>
+              {{~/if~}}
+            {{~/unless~}}
+          {{~/collection~}}
+        </ul>
+      {{/collate}}
+    <aside id="for-id-only-desc">for identification purposes only</aside>
+  </section>
+</Layout>

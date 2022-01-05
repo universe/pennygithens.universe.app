@@ -1,0 +1,32 @@
+<Layout>
+  <header class="section blog__collections-header">
+    <h1 class="blog__collections-title">{{this.title}}</h1>
+    <nav>
+      <ul class="blog__collections">
+        <li><a class="blog__collection" href="#">All</a></li>
+        {{#collate news key="collection" as |collection|}}
+          <li><a class="blog__collection" href="#{{collection.slug}}" id="{{collection.slug}}">{{collection.name}}</a></li>
+        {{/collate}}
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section blog__section">
+    <ul class="posts">
+      {{#collection news label="News Posts" as |post|}}
+        <li class="post">
+          <a href="{{@record.slug}}" data-collection="{{post.collection type=choice multiple=true input=dropdown custom=true options="Articles,Policy,Case Study"}}">
+            <img class="post__image" src="{{post.header_image}}">
+            <h2 class="post__title">{{post.title}}</h2>
+            {{#if post.subtitle}}
+              <h3 class="post__subtitle">{{post.subtitle}}</h3>
+            {{/if}}
+            <time class="post__timestamp">{{date @record.createdAt}}</time>
+          </a>
+        </li>
+      {{else}}
+        <li class="post__empty"><h1>No Updates</h1></li>
+      {{/collection}}
+    </ul>
+  </section>
+</Layout>

@@ -1,0 +1,50 @@
+<Layout>
+  <header id="{{this.tags required=true help='Tag to identify subscribers to this petition by.'}}" class="petition">
+    {{#if this.image}}<img src="{{this.image type=image}}" class="petition__image">{{/if}}
+    {{#this.image as |img|}}asdf{{img.src}}{{/this.image}}
+    <section class="petition__thank-you" id="thank-you">
+      <h1 class="petition__title">{{this.thank_you_title required=true type="text" default="Thank You"}}</h1>
+      {{#if this.thank_you_subtitle}}<h2 class="petition__subtitle">{{this.thank_you_subtitle type="text"}}</h2>{{/if}}
+      {{#if this.thank_you_body}}<section>{{this.thank_you_body type=html images=true}}</section>{{/if}}
+    </section>
+    <section class="petition__container">
+      <section class="petition__body">{{this.body type=html images=true}}</section>
+      <form class="petition__form" action="https://api.universe.app/v1/email/subscribe" method="POST" novalidate>
+        <h1 class="petition__title">{{this.title required=true type="text"}}</h1>
+
+        {{#if this.subtitle}}<h2 class="petition__subtitle">{{this.subtitle type="text"}}</h2>{{/if}}
+
+        <input type="hidden" name="u" value="{{mailchimp.user_id}}" />
+        <input type="hidden" name="id" value="{{mailchimp.audience_id}}" />
+        <input type="hidden" name="redirect" value="https://{{@site.domain}}{{@page.slug}}#thank-you" />
+        <input type="hidden" name="TAGS" value={{this.tags}} />
+
+        {{#if (this.enable_name type="choice" help="Collect names in your petition form.")}}
+          <div class="petition-form__section">
+            <input type="text" placeholder="First Name" name="FNAME" />
+            <input type="text" placeholder="Last Name" name="LNAME" />
+          </div>
+        {{/if}}
+
+        {{#if (this.enable__zip type="choice" help="Collect zip codes in your petition form")}}
+          <div class="petition-form__section">
+            <input type="text" name="ZIP" placeholder="Zip Code" maxlength="5">
+          </div>
+        {{/if}}
+
+        {{#if (this.enable_phone type="choice" help="Collect telephone numbers in your petition form.")}}
+          <div class="petition-form__section">
+            <input type="tel" placeholder="(123) 456-7890" name="PHONE" />
+          </div>
+        {{/if}}
+
+        <div class="petition-form__section">
+          <input type="email" placeholder="your@email.com" name="EMAIL" />
+        </div>
+
+        <input type="submit" class="subscribe button" value="{{this.submit_text type=text default='Sign Your Name'}}" />
+      </form>
+    </section>
+  </header>
+  <script>document.scrollingElement.scrollTop = 0;</script>
+</Layout>

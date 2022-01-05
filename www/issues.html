@@ -1,0 +1,22 @@
+<Layout>
+  <header class="section issues__header">
+    <img src="{{this.header_image type=image}}" class="issues__header-image">
+    <section class="issues__header-content wysiwyg">
+      <h1 class="issues__title">{{this.title}}</h1>
+      {{#if this.subtitle}}<h2 class="issues__subtitle">{{this.subtitle}}</h2>{{/if}}
+      {{this.header_text type=html images=true}}
+    </section>
+  </header>
+
+  <section class="section issues__body">
+    <ul class="issues">
+      {{#collection issues as |issue|}}
+        <li class="issue wysiwyg">
+          <img class="issue__image" src="{{issue.image}}">
+          <h3 class="issue__name">{{issue.name}}</h3>
+          {{issue.description}}
+        </li>
+      {{/collection}}
+    </ul>
+  </section>
+</Layout>

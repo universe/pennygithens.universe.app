@@ -1,0 +1,146 @@
+<Layout>
+  <script src="https://js.stripe.com/v3/"></script>
+
+  {{#if this.banner}}
+    <figure>
+      <img src="{{this.banner type="image"}}" />
+    </figure>
+  {{/if}}
+  <section class="section donate__container">
+
+    <div class="donate__ask wysiwyg">
+      <h1>{{this.title default="Donate"}}</h1>
+      <p>{{this.description type=html default=""}}</p>
+    </div>
+
+    <form action="https://api.universe.app/v1/money/charge" method="post" id="donate-form">
+
+      <noscript>
+        <p class="donation__form-error">Javascript is required to process payments.</p>
+      </noscript>
+
+      <fieldset id="amount-picker">
+        <legend>Amount</legend>
+        <label for="amount-10">$10</label>
+        <input type="radio" name="amount-options" value="10" id="amount-10" />
+
+        <label for="amount-50">$50</label>
+        <input type="radio" name="amount-options" value="50" id="amount-50" />
+
+        <label for="amount-100">$100</label>
+        <input type="radio" name="amount-options" value="100" id="amount-100" />
+
+        <label for="amount-500">$500</label>
+        <input type="radio" name="amount-options" value="500" id="amount-500" />
+
+        <label for="amount-custom">Custom Amount</label>
+
+        <input type="number" name="amount-custom" value="" id="amount-custom" />
+        <input type="hidden" name="amount" value="" id="amount" />
+        <script>
+          document.getElementById('amount-picker').addEventListener('input', (evt) => {
+            document.getElementById('amount').value = parseFloat(evt.srcElement.value) * 100;
+            if (evt.srcElement.type === 'radio') {
+              document.getElementById('amount-custom').value = "";
+            }
+            else {
+              for (let radio of [...document.getElementsByName('amount-options')]) {
+                radio.checked = false;
+              }
+            }
+            console.log('Donation Amount:', document.getElementById('amount').value);
+          });
+        </script>
+
+      </fieldset>
+
+
+      <fieldset>
+        <legend>Details</legend>
+        <input type="text" name="email" placeholder="Email Address" />
+        <input type="text" name="firstName" placeholder="First Name" />
+        <input type="text" name="lastName" placeholder="Last Name" />
+        <input type="text" name="address" placeholder="Street Address" />
+        <input type="text" name="lastName" placeholder="Unit No." />
+        <select name="country">
+          <option value="us">United States</option>
+        </select>
+        <label for="passportNo" class="donate__label">
+          The Federal Election Commission requires committees to collect the donor's U.S. passport number when they provide a foreign address.
+        </label>
+        <input type="text" name="passportNo" id="passportNo" placeholder="US Passport Number" />
+        <input type="text" name="zip" placeholder="Zip" />
+        <input type="text" name="city" placeholder="City" />
+        <select name="state">
+          <option value="ca">CA</option>
+        </select>
+        <input type="tel" name="tel" placeholder="Cell Number" />
+      </fieldset>
+
+      <div class="form-row">
+
+        <label for="card-element" class="donate__label">Credit or debit card</label>
+        <div id="card-element"><!-- A Stripe Element will be inserted here. --></div>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+
+      <input type="submit" class="button" value="{{this.formCta default="Submit"}}" />
+    </form>
+  </section>
+
+  <section class="section donate__legal wysiwyg">
+    {{this.legal type=html default=""}}
+    <p>By proceeding with this transaction, you agree to Universe's <a href="https://universe.app/legal#terms">Terms & Conditions</a>.</p>
+  </section>
+
+  <script>
+    var stripe = Stripe('pk_live_5M6jCyKU5H5u24qajfe6swv400vRGnLdfB');
+    var elements = stripe.elements();
+    // Custom styling can be passed to options when creating an Element.
+    var style = {
+      base: {
+        // Add your base input styles here. For example:
+        fontSize: '16px',
+        color: "#32325d",
+      }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Create a token or display an error when the form is submitted.
+    var form = document.getElementById('donate-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          // Inform the customer that there was an error.
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        } else {
+          // Send the token to your server.
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('donate-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
+  </script>
+</Layout>
