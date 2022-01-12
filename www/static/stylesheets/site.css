@@ -17,6 +17,10 @@
 @import "./pages/issues.css";
 @import "./pages/volunteer.css";
 
+span[data-neutrino] {
+  display: contents !important;
+}
+
 *, *:before, *:after {
   margin: 0;
   padding: 0;

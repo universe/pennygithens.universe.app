@@ -75,6 +75,7 @@
   font-size: 2.4rem;
   height: 4.8rem;
   line-height: 4.8rem;
+  white-space: pre;
 }
 
 .home__ctas .volunteer {
@@ -82,19 +83,21 @@
   font-size: 2.4rem;
   height: 4.8rem;
   line-height: 4.8rem;
+  white-space: pre;
 }
 
 .home__ctas .email-form {
   position: absolute;
-  max-width: calc(var(--site-width) + ((100vw - var(--site-width)) / 2) - 12.8rem);
+  max-width: calc(var(--site-width) + (100vw - var(--site-width))/2 - 12.8rem);
   display: flex;
   flex-flow: row;
   bottom: 0;
-  background: var( --cta );
+  background: var(--cta);
   padding: 2.4rem;
   left: 50%;
   transform: translateX(-50vw) translateY(50%);
   width: calc(100vw - 12.8rem);
+  padding-left: calc((100vw - var(--site-width))/2 + 1.8rem);
 }
 
 .home__ctas .home__ctas-or {
@@ -224,10 +227,18 @@
 
 .home__issues {
   margin-bottom: 5rem;
+  display: flex;
+}
+
+.home__issues-description {
+  width: 54rem;
+  max-width: 54rem;
 }
 
 .home__issues .issues {
   margin: 3.2rem 0;
+  background: var(--primary);
+  color: white;
 }
 
 .home__issues .issue {

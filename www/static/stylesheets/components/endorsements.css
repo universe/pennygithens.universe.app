@@ -45,12 +45,13 @@
 
 .endorsement__quote::before {
   content: '“';
-  font-size: 4.2rem;
+  font-size: 3.2rem;
   font-weight: bold;
   opacity: 0.5;
   line-height: 0;
   position: relative;
-  top: 1.2rem;
+  top: 0.8rem;
+  margin-right: 0.4rem;
 }
 
 #for-id-only-desc {

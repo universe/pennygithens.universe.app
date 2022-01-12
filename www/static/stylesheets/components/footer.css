@@ -87,7 +87,7 @@
 .footer__disclosures {
   grid-column: 2;
   grid-row-start: 1;
-  grid-row-end: auto;
+  grid-row-end: 2;
   text-align: left;
   color: white;
   border-left: 4px solid var(--primary);
@@ -113,11 +113,15 @@
   text-decoration: underline;
 }
 
+.footer .email-form__label {
+  color: white;
+}
+
 
 .footer .email-form input[type=email],
 .footer .email-form input[type=submit] {
   width: 100%;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1.2rem !important;
 }
 
 .footer__social .nav__social {
