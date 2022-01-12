@@ -6,3 +6,4 @@ package-lock.json
 dist
 data
 _dist
+gcloud.json
