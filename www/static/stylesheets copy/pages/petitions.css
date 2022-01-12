@@ -1,0 +1,132 @@
+.petition {
+  min-height: calc(100vh - 19.8rem);
+  max-width: 118rem;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 3.2rem;
+  position: relative;
+}
+
+.petition__container {
+  display: flex;
+  width: 100%;
+}
+
+.petition__form {
+  width: 52rem;
+  padding: 2.8rem;
+  background: var(--primary);
+  text-align: left;
+  align-self: baseline;
+}
+
+.petition__title {
+  color: var(--yellow);
+  font-size: 3.8rem;
+  text-align: center;;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.petition__subtitle {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.petition__image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: calc(100% + 5.5rem);
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  transform: translateX(-50%);
+}
+
+.petition-form__section {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-flow: row;
+}
+
+.petition-form__section input {
+  border-radius: 4px;
+  border: 0px solid transparent !important;
+}
+
+.petition__form input[type=submit] {
+  margin-left: auto;
+  display: block;
+  width: 100%;
+}
+
+
+.petition-form__section input + input {
+  margin-left: 0.8rem;
+}
+
+.petition__body {
+  width: calc(100% - 52rem - 2.4rem);
+  margin-right: 2.4rem;
+  background: white;
+  height: 100%;
+  padding: 3.2rem;
+  text-align: left;
+}
+
+.petition__body:empty { opacity: 0; height: 1px; padding: 0; }
+
+.petition__thank-you {
+  display: none;
+}
+
+.petition__thank-you:target {
+  display: block;
+  margin: auto;
+  width: 52rem;
+  position: relative;
+  top: -10vh;
+  padding: 2.8rem;
+  background: var(--primary);
+  text-align: left;
+  color: white;
+}
+
+.petition__thank-you:target + .petition__container {
+  display: none;
+}
+
+
+@media (max-width: 1024px) {
+  .petition__form {
+    width: 42rem;
+  }
+
+  .petition__body {
+    width: calc(100% - 42rem - 2.4rem);
+  }
+}
+
+
+@media (max-width: 920px) {
+
+  .petition__body, .petition__form {
+    width: 100%;
+    max-width: 42rem;
+    margin: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  .petition__container {
+    flex-flow: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}

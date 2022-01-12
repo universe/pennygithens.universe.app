@@ -18,7 +18,6 @@
 .email-form .email-form__section {
   display: flex;
   flex-wrap: wrap;
-  margin-right: 1.2rem;
 }
 
 .email-form input {
@@ -39,7 +38,7 @@
 
 .email-form input[type=submit] {
   width: auto;
-  background-color: black;
+  background-color: var(--gray);
 }
 
 .email-form input[type=text] {

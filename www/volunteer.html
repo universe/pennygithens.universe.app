@@ -1,0 +1,14 @@
+<Layout>
+  <header class="section page__header">
+    <img class="volunteer__bg" src="{{this.background_image type='image' required=false tag=false}}" />
+  </header>
+  <section class="section volunteer__body wysiwyg">
+    <section class="wysiwyg"></section>
+    <VolunteerForm>
+      <section class="volunteer__header-content wysiwyg">
+        <h1 class="form__title">{{this.title default="Sign Up"}}</h1>
+        {{this.description type=html images=true required=false}}
+      </section>
+    </VolunteerForm>
+  </section>
+</Layout>

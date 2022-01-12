@@ -1,0 +1,22 @@
+.section {
+  max-width: var(--site-width);
+  margin: 0 auto;
+  padding: 1.8rem 0;
+  position: relative;
+}
+
+.section::after {
+  content: "";
+  background-color: var(--section-color);
+  background-image: var(--section-image);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}

@@ -1,6 +1,6 @@
 .wysiwyg {
   text-align: left;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   display: inline-block;
   width: 100%;
 }
@@ -12,7 +12,7 @@
 }
 
 .ql-font-serif {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Serif', sans-serif;
 }
 
 .ql-font-monospace {
@@ -20,7 +20,7 @@
 }
 
 .wysiwyg p {
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.2;
   font-weight: 400;
   margin-bottom: 1.2em;
@@ -31,6 +31,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg h2 {
@@ -38,6 +39,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg h3 {
@@ -45,6 +47,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg h4 {
@@ -52,6 +55,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg h5 {
@@ -59,6 +63,7 @@
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg h6 {
@@ -67,21 +72,13 @@
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 0.4em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wysiwyg hr {
-  content: "";
   display: block;
-  position: relative;
-  background: url(/static/images/line.svg);
-  height: 3.2rem;
-  width: 100vw;
-  background-position: center;
-  background-repeat: repeat-x;
-  left: 50%;
-  transform: translateX(-50vw);
-  border: none;
-  margin: 2.4rem 0;
+  width: 100%;
+  margin: 1.2em 0;
 }
 
 .wysiwyg blockquote {

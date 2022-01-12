@@ -55,6 +55,8 @@
   text-align: left;
   margin-bottom: 2.4rem;
   font-size: 3rem;
+  font-size: 0;
+  color: transparent;
   margin: 0;
 }
 

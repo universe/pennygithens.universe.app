@@ -1,0 +1,85 @@
+<form action="https://api.universe.app/v1/volunteer" method="POST" id="volunteer-form" class="volunteer__form">
+  <p id="volunteer-form-feedback" class="volunteer__form-feedback"></p>
+  {{@yield}}
+  <fieldset>
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" placeholder="First Name" />
+  </fieldset>
+  <fieldset>
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name" />
+  </fieldset>
+  <fieldset class="wide">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="volunteer@email.com" />
+  </fieldset>
+  <fieldset class="wide">
+    <label for="email">Phone Number</label>
+    <input type="tel" name="tel" placeholder="(555) 867-5309" />
+  </fieldset>
+  <!-- <fieldset class="wide">
+    <label for="note">Note</label>
+    <textarea id="note" name="note" placeholder="Tell us about yourself" autosize></textarea>
+  </fieldset> -->
+
+  <fieldset class="wide volunteer__checkboxes">
+    <h2>{{volunteer.tags_header default="How would you like to volunteer?"}}</h2>
+    <input type="checkbox" id="tags[canvassing]" name="tags" value="canvassing" />
+    <label for="tags[canvassing]">Canvassing</label>
+
+    <input type="checkbox" id="tags[writing]" name="tags" value="writing" />
+    <label for="tags[writing]">Writing</label>
+
+    <input type="checkbox" id="tags[phone-text]" name="tags" value="phone-text" />
+    <label for="tags[phone-text]">Phone and Text Banking</label>
+
+    <input type="checkbox" id="tags[fundraising]" name="tags" value="fundraising" />
+    <label for="tags[fundraising]">Fundraising</label>
+
+    <input type="checkbox" id="tags[event-planning]" name="tags" value="event-planning" />
+    <label for="tags[event-planning]">Event Planning</label>
+
+    <input type="checkbox" id="tags[social-media]" name="tags" value="social-media" />
+    <label for="tags[social-media]">Social Media</label>
+
+    <input type="checkbox" id="tags[art-graphics]" name="tags" value="art-graphics" />
+    <label for="tags[art-graphics]">Art and Graphics</label>
+
+    <input type="checkbox" id="tags[data]" name="tags" value="data" />
+    <label for="tags[data]">Data Analysis</label>
+
+    <input type="checkbox" id="tags[research]" name="tags" value="research" />
+    <label for="tags[research]">Research</label>
+  </fieldset>
+
+  <input type="hidden" name="_realm" value="{{universe.realm}}" />
+  <input type="hidden" name="_outreachId" value="" />
+  <input type="hidden" name="_redirect" value="https://{{@site.domain}}{{@page.url}}" />
+  <input type="text" name="_honeypot" value="" tabindex="-1" style="opacity:0;position:absolute;width:1px;height:1px;" />
+
+  <input type="hidden" name="_mailchimpId" value="{{mailchimp.user_id}}" />
+  <input type="hidden" name="_mailchimpAudience" value="{{mailchimp.audience_id}}" />
+
+  <input type="submit" value="Sign Up" />
+
+  {{#if volunteer.disclaimer}}
+    <section class="volunteer__disclaimer wysiwyg">
+      {{volunteer.disclaimer type=html images=true required=false}}
+    </section>
+  {{/if}}
+  <script>
+    document.body.classList.add('volunteer');
+    const form = document.getElementById('volunteer-form');
+    form.addEventListener('submit', (evt) => {
+      const data = {}; new FormData(evt.target).forEach((value, key) => data[key] = value);
+      localStorage.setItem('__form__', JSON.stringify(data));
+    });
+    const base64UrlDecode = (str) => atob(str).replace(/-/g, '+').replace(/_/g, '/');
+    const res = JSON.parse(base64UrlDecode(new URLSearchParams(window.location.search).get('res') || '') || '{}');
+    res.status && form.classList.add(`volunteer__form--${res.status}`);
+    res.status && (document.getElementById('volunteer-form-feedback').textContent = (res.status === 'success') ? "{{volunteer.success_message default='Thanks! Our team will be in touch soon.'}}" : (res.message || 'Something went wrong'));
+    res.status === 'success' && localStorage.removeItem('__form__');
+    const data = JSON.parse(localStorage.getItem('__form__') || '{}');
+    Array.from(form.elements).forEach(e => e.getAttribute('type') !== 'checkbox' && (e.value = (data[e.name] || e.value)));
+  </script>
+</form>

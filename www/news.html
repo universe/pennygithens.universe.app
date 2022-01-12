@@ -5,7 +5,7 @@
       <ul class="blog__collections">
         <li><a class="blog__collection" href="#">All</a></li>
         {{#collate news key="collection" as |collection|}}
-          <li><a class="blog__collection" href="#{{collection.slug}}" id="{{collection.slug}}">{{collection.name}}</a></li>
+          <li><a class="blog__collection" href="#{{collection.slug}}" id="{{collection.slug}}">{{collection.title}}</a></li>
         {{/collate}}
       </ul>
     </nav>
@@ -15,7 +15,7 @@
     <ul class="posts">
       {{#collection news label="News Posts" as |post|}}
         <li class="post">
-          <a href="{{@record.slug}}" data-collection="{{post.collection type=choice multiple=true input=dropdown custom=true options="Articles,Policy,Case Study"}}">
+          <a href="{{@record.slug}}" data-collection="{{post.collection type=choice multiple=true custom=true options="Articles,Policy,Case Study"}}">
             <img class="post__image" src="{{post.header_image}}">
             <h2 class="post__title">{{post.title}}</h2>
             {{#if post.subtitle}}

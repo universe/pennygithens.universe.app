@@ -10,7 +10,7 @@
 
   <section class="section endorsements__body">
       {{#collate endorsements key="type" default="General Endorsements" as |type|}}
-        <h3 class="endorsements__section-title">{{type.name}}</h3>
+        <h3 class="endorsements__section-title">{{type.title}}</h3>
         <ul class="endorsements">
           {{~#collection endorsements as |endorsement|~}}
             {{~#if endorsement.image~}}

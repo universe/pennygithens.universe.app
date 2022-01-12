@@ -12,9 +12,10 @@
     <ul class="issues">
       {{#collection issues as |issue|}}
         <li class="issue wysiwyg">
-          <img class="issue__image" src="{{issue.image}}">
+          {{#if issue.image}}<img class="issue__image" src="{{issue.image}}">{{/if}}
           <h3 class="issue__name">{{issue.name}}</h3>
-          {{issue.description}}
+          {{issue.description priority=4}}
+          {{#if issue.body}}<a href="{{@record.permalink}}" class="button">Read More</a>{{/if}}
         </li>
       {{/collection}}
     </ul>

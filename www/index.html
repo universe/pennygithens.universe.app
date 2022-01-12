@@ -7,12 +7,22 @@
       <div class="home__ctas">
         <Mailchimp />
         {{#link general.donation_link as |cta|}}
-          <span class="home__ctas-or">or</span>
           <a href="{{cta.url}}" class="donate button">{{cta.name}}</a>
+        {{/link}}
+        {{#link general.get_involved as |cta|}}
+          <a href="{{cta.url}}" class="volunteer button">{{cta.name}}</a>
         {{/link}}
       </div>
     </section>
   </header>
+
+  {{#if this.upper_content}}
+    <section class="section upper__content">
+      <div class="body__about-text wysiwyg">
+        {{this.upper_content type=html images=true}}
+      </div>
+    </section>
+  {{/if}}
 
   {{#if (this.show_about type=choice help="Show about section on the homepage" default=true)}}
     <section class="section home__about">
@@ -78,4 +88,19 @@
     </section>
   {{/if}}
 
+  {{#if (this.show_volunteer type=choice help="Show volunteer section on the homepage" default=true)}}
+    <section class="section home__volunteer" id="volunteer">
+      <h2 class="home__volunteer-header">{{this.volunteer_header}}</h2>
+      <VolunteerForm />
+      <img src="{{this.volunteer_image type='image'}}" class="home__volunteer-image" />
+    </section>
+  {{/if}}
+
+  {{#if this.lower_content}}
+    <section class="section lower__content">
+      <div class="body__about-text wysiwyg">
+        {{this.lower_content type=html images=true}}
+      </div>
+    </section>
+  {{/if}}
 </Layout>

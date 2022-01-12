@@ -82,9 +82,9 @@
 }
 .blog__collection {
   padding: 0.4rem 1.2rem;
-  border: 0px solid black;
+  border: 0px solid var(--gray);
   border-width: 1px 0;
-  font-weight: bold;
+  font-weight: 400;
 }
 .blog__collection:target {
   background: var(--light-gray);

@@ -1,9 +1,16 @@
 {
   "name": "@universe/neutrino",
   "vapid": {
-    "name": "Neutrino",
-    "url": "neutrino.universe.app",
-    "port": 1777
+    "name": "Destiny Wells",
+    "domain": "wellsforindiana.com",
+    "port": 1778,
+    "database": {
+      "type": "firebase",
+      "scope": "websites/default",
+      "projectId": "p4ecebf64efe948f6bbfe059ad17b2",
+      "username": "00000000-0000-0000-0000-000000000000@universe.app",
+      "password": "00000000-0000-0000-0000-000000000000"
+    }
   },
   "scripts": {
     "serve": "forever start -c 'yarn start' .",
