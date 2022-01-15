@@ -140,6 +140,10 @@
 }
 
 @media (max-width: 600px) {
+
+}
+
+@media (max-width: 600px) {
   #body {
     display: flex;
     flex-flow: row;
@@ -242,6 +246,8 @@
 
   .section.home__endorsements .button {
     margin: 0 auto;
+    width: calc(100% - 3.2rem);
+    margin: 0 1.8rem;
   }
 
   .section.home__issues .issues {

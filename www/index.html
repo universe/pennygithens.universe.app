@@ -34,6 +34,25 @@
     </section>
   {{/if}}
 
+  {{#if (this.show_issues type=choice help="Show issues section on the homepage" default=true)}}
+    <section class="section home__issues">
+      {{#if this.issues__description}}
+        <div class="home__issues-description wysiwyg">
+          {{this.issues__description type=html images=true}}
+        </div>
+      {{/if}}
+      <ul class="issues">
+        {{#collection issues sortable=true as |issue|}}
+          <li class="issue">
+            {{#if issue.image}}<img src="{{issue.image type=image}}" class="issue__image">{{/if}}
+            <h3 class="issue__name">{{issue.name}}</h3>
+            {{#if issue.description}}<div class="issue__description">{{issue.description type=html}}</div>{{/if}}
+          </li>
+        {{/collection}}
+      </ul>
+    </section>
+  {{/if}}
+
   {{#if (this.show_endorsements type=choice help="Show endorsements section on the homepage" default=true)}}
     <section class="section home__endorsements">
 
@@ -65,25 +84,22 @@
     </section>
   {{/if}}
 
-  {{#if (this.show_issues type=choice help="Show issues section on the homepage" default=true)}}
-    <section class="section home__issues">
-      {{#if this.issues__description}}
-        <div class="home__issues-description wysiwyg">
-          {{this.issues__description type=html images=true}}
-        </div>
-      {{/if}}
-      <ul class="issues">
-        {{#collection issues sortable=true as |issue|}}
-          <li class="issue">
-            <img src="{{issue.image type=image}}" class="issue__image">
-            <h3 class="issue__name">{{issue.name}}</h3>
-            <div class="issue__description">{{issue.description type=html}}</div>
+  {{#if (this.show_news type=choice help="Show news section on the homepage" default=true)}}
+    <section class="section home__news" id="news">
+      <h2 class="home__news-header">{{this.news_header}}</h2>
+      <ul>
+        {{#collection news sortable=true as |article|}}
+          <li class="news-article">
+            <a href="{{@record.slug}}">
+              <time class="news-article__date">{{date @record.createdAt}}</time>
+              <h3 class="news-article__name">{{article.title}}</h3>
+            </a>
           </li>
         {{/collection}}
       </ul>
 
-      {{#link this.issues_cta as |cta|}}
-        <a href="{{cta.url}}" class="button">{{cta.name}}</a>
+      {{#link this.news_cta as |cta|}}
+        <a href="{{cta.url}}" class="button home__news-cta">{{cta.name}}</a>
       {{/link}}
     </section>
   {{/if}}

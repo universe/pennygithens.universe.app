@@ -57,7 +57,16 @@
 #for-id-only-desc {
   display: block;
   text-align: right;
-  margin: 2.4rem 0;
+  margin: 2.4rem 0 0;
+  position: absolute;
+  right: 0;
+  font-size: 1.4rem;
+}
+
+.home__endorsements-cta {
+  float: left;
+  background: var(--primary);
+  margin-left: 3.2rem;
 }
 
 .endorsement.endorsement--id-only .endorsement__title::after, #for-id-only-desc::before {

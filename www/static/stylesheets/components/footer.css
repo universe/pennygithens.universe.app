@@ -162,6 +162,15 @@
     grid-column: 1;
     grid-row: 4;
     text-align: center;
+    border: none;
+    padding: 0;
+  }
+  .home__endorsements-title {
+    text-align: center;
+  }
+  .home__endorsements .endorsements {
+    padding: 0;
+    border: 0;
   }
   .footer__universe {
     padding: 1.2rem 0 3.2rem;
