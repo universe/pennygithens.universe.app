@@ -21,6 +21,13 @@
   padding: 1.8rem;
   z-index: 3;
   transform: translate3d(0, 0, 0); /* needed for ios rendering bug */
+  --section-color: var(--secondary);
+}
+
+.volunteer__body .volunteer__form fieldset label,
+.volunteer__body .volunteer__checkboxes label::before {
+  color: black;
+  border-color: black;
 }
 
 fieldset.wide.volunteer__checkboxes {

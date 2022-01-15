@@ -1,20 +1,49 @@
+
 .page__header {
   display: flex;
   flex-flow: row-reverse;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  --section-color: #265EC5;
+  color: white;
+  justify-content: center;
+  padding: 4.2rem;
 }
+
+.page__title {
+  padding: 0 0.8rem 0 0;
+  margin: 0;
+  line-height: 1;
+  color: white;
+  margin-bottom: 0 !important;
+}
+
+.page__subtitle {
+  margin-bottom: 5.2rem;
+  padding: 0 0.8rem 0.8rem;
+  line-height: 1;
+  color: white;
+  font-weight: 400 !important;
+  text-transform: none;
+  font-size: 2.8rem !important;
+}
+
 .page__header-content {
-  width: 55.6rem;
+  width: 100%;
+  max-width: 66%;
+  text-align: center;
 }
+
 .page__header-image {
   width: calc(50% - 3.2rem);
   margin-left: 3.2rem;
   height: auto;
-  height: calc((var(--site-width) / 2) - 3.2rem);
+  height: calc((var(--site-width) / 3) - 3.2rem);
   background-size: 0.6rem 0.6rem;
   object-fit: contain;
+  z-index: 1;
 }
+
 .page__header--hero {
   min-height: 59.5rem;
   justify-content: flex-start;
@@ -45,7 +74,7 @@
   font-weight: 800;
 }
 .page__body {
-  max-width: 55.6rem;
+  max-width: 82rem;
   display: block;
   margin: 0 auto;
 }

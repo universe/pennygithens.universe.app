@@ -45,7 +45,7 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  padding-bottom: 56.25vw;
+  padding-bottom: 34vw;
 }
 .blog__header.blog__header--no-image {
   padding-bottom: 3.2rem;
@@ -60,7 +60,7 @@
 .blog__header-image {
   position: absolute;
   width: 100vw;
-  height: 56.25vw;
+  height: 34.25vw;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
@@ -107,10 +107,15 @@
   margin-bottom: 3.2rem;
 }
 .blog__header, .blog__body {
-  max-width: 68rem;
+  max-width: 82rem;
   display: block;
   margin: 0 auto;
 }
+
+.blog__body {
+  display: inline-block;
+}
+
 .blog__section {
   max-width: var(--site-width);
 }

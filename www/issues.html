@@ -1,6 +1,6 @@
 <Layout>
   <header class="section issues__header">
-    <img src="{{this.header_image type=image}}" class="issues__header-image">
+    {{#if this.header_image}}<img src="{{this.header_image type=image}}" class="issues__header-image">{{/if}}
     <section class="issues__header-content wysiwyg">
       <h1 class="issues__title">{{this.title}}</h1>
       {{#if this.subtitle}}<h2 class="issues__subtitle">{{this.subtitle}}</h2>{{/if}}

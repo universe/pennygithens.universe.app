@@ -1,6 +1,6 @@
 <Layout>
   <header class="section endorsements__header">
-    <img src="{{this.header_image type=image}}" class="endorsements__header-image">
+    {{#if this.header_image}}<img src="{{this.header_image type=image}}" class="endorsements__header-image">{{/if}}
     <section class="endorsements__header-content wysiwyg">
       <h1>{{this.title}}</h1>
       {{#if this.subtitle}}<h2>{{this.subtitle}}</h2>{{/if}}

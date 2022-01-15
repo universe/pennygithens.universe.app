@@ -10,6 +10,13 @@
   list-style: none;
   margin-bottom: 2.4rem;
   max-width: 58rem;
+  list-style: none;
+  margin-bottom: 2.4rem;
+  max-width: 58rem;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 0.8rem;
 }
 
 .issue__name {

@@ -17,6 +17,7 @@
   appearance: none;
   text-align: center;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 .button:visited,

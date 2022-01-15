@@ -27,6 +27,52 @@
   background-size: 0.6rem 0.6rem;
   object-fit: contain;
 }
+
+.issues__header {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  --section-color: #265EC5;
+  color: white;
+  justify-content: center;
+  padding: 4.2rem;
+}
+
+.issues__title {
+  padding: 0 0.8rem 0 0;
+  margin: 0;
+  line-height: 1;
+  color: white;
+  margin-bottom: 0 !important;
+}
+
+.issues__subtitle {
+  margin-bottom: 5.2rem;
+  padding: 0 0.8rem 0.8rem;
+  line-height: 1;
+  color: white;
+  font-weight: 400 !important;
+  text-transform: none;
+  font-size: 2.8rem !important;
+}
+
+.issues__header-content {
+  width: 100%;
+  max-width: 66%;
+  text-align: center;
+}
+
+.issues__header-image {
+  width: calc(50% - 3.2rem);
+  margin-left: 3.2rem;
+  height: auto;
+  height: calc((var(--site-width) / 3) - 3.2rem);
+  background-size: 0.6rem 0.6rem;
+  object-fit: contain;
+  z-index: 1;
+}
+
 @media (max-width: 600px) {
   .issues__body .issues {
     list-style: none;

@@ -16,6 +16,7 @@
 @import "./pages/blog.css";
 @import "./pages/issues.css";
 @import "./pages/volunteer.css";
+@import "./pages/page.css";
 
 span[data-neutrino] {
   display: contents !important;
@@ -72,7 +73,7 @@ body {
   font-size: 2rem;
   margin: 0 1.4rem;
   color: #000000;
-  background-color: var(--matte);
+  background-color: white;
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -111,7 +112,7 @@ p:last-of-type {
 }
 
 img[src^="data"] {
-  background-color: var(--matte);
+  background-color: white;
   background-image: linear-gradient(-45deg, transparent calc(50% - 1px), rgb(218, 227, 235) 50%, transparent calc(50% + 1px));
   background-repeat: repeat;
   background-size: 0.6rem 0.6rem;

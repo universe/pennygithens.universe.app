@@ -84,6 +84,7 @@
   border-radius: 0.4rem;
   display: none;
   grid-gap: 0.4rem;
+  display: none !important;
 }
 
 .nav__item:hover .nav__sub-menu {

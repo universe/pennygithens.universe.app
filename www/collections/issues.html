@@ -1,6 +1,6 @@
 <Layout>
   <header class="section page__header">
-    <img src="{{this.image type=image tag=false required=false priority=2}}" class="page__header-image">
+    {{#if this.image}}<img src="{{this.image type=image tag=false required=false priority=2}}" class="page__header-image">{{/if}}
     <section class="page__header-content wysiwyg">
       <h1 class="page__title">{{this.name priority=1}}</h1>
       {{#if this.subtitle}}<h2 class="page__subtitle">{{this.subtitle required=false priority=3}}</h2>{{/if}}
