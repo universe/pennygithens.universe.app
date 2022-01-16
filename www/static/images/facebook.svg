@@ -13,7 +13,7 @@
                                 <use xlink:href="#path-1"></use>
                             </mask>
                             <g></g>
-                            <g id="🎨-color" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)" fill="#304659" stroke="#1A1A1A">
+                            <g id="🎨-color" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)" fill="#FFFFFF" stroke="#1A1A1A">
                                 <rect id="🎨-Color" stroke-width="2" fill-rule="nonzero" x="1" y="1" width="20" height="20"></rect>
                             </g>
                         </g>

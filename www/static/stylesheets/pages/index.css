@@ -291,7 +291,8 @@
   padding: 10rem 0;
   position: relative;
   color: white;
-  max-width: 92.8rem
+  max-width: 92.8rem;
+  z-index: 9;
 }
 
 .upper__content::before {
@@ -422,7 +423,13 @@
   }
   .home__header, .home__about {
     flex-flow: column;
- }
+  }
+  .home__about {
+    z-index: 9;
+  }
+  .upper__content {
+    padding: 10rem 1.8rem 0;
+  }
  .home__header-content {
    padding: 2rem;
  }

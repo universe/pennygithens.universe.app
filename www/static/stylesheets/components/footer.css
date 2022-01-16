@@ -103,9 +103,11 @@
   margin-bottom: 1.2rem;
 }
 
-.footer__social li:first-of-type, .footer__social li.nav__social--email {
+.footer__social li.nav__social--description, .footer__social li.nav__social--email {
   font-weight: bold;
   width: 100%;
+  flex-grow: 1;
+  min-width: 100%;
 }
 
 .footer__social li.nav__social--email a {
@@ -126,6 +128,9 @@
 
 .footer__social .nav__social {
   color: white;
+  display: flex;
+  flex-wrap: wrap !important;
+  flex-flow: row;
 }
 
 @media (max-width: 600px) {
