@@ -6,6 +6,7 @@
   flex-flow: row;
   align-items: center;
   height: 71.2rem;
+  z-index: 10;
 }
 
 .home__header::before {
@@ -440,6 +441,7 @@
  .home__header {
    padding-top: 50vh;
    height: auto;
+   z-index: 1;
  }
  .home__header::before {
    top: 0;
