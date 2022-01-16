@@ -78,7 +78,7 @@
   margin-bottom: 1.2rem;
 }
 
-.footer__social li:first-of-type, .footer__social li.nav__social--email {
+.footer__social li.nav__social--description, .footer__social li.nav__social--email {
   font-weight: bold;
   width: 100%;
 }
