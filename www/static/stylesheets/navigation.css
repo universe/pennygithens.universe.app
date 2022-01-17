@@ -181,6 +181,10 @@
     display: none !important;
   }
 
+  .nav__social .social {
+    justify-content: center;
+  }
+
   .main {
     width: 100vw;
     height: auto;
