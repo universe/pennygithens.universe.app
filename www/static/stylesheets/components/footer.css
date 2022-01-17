@@ -13,6 +13,7 @@
   transform: translateX(-50%);
   background: var(--secondary);
   z-index: -1;
+  box-shadow: 0 100px 0 0 var(--secondary), 0 200px 0 0 var(--secondary), 0 100px 0 0 var(--secondary), 0 300px 0 0 var(--secondary), 0 400px 0 0 var(--secondary), 0 500px 0 0 var(--secondary), 0 600px 0 0 var(--secondary), 0 100px 0 0 var(--secondary), 0 700px 0 0 var(--secondary), 0 100px 0 0 var(--secondary), 0 600px 0 0 var(--secondary), 0 800px 0 0 var(--secondary), 0 900px 0 0 var(--secondary), 0 100px 0 0 var(--secondary);
 }
 
 .footer .email-form {
