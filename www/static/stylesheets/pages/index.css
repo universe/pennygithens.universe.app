@@ -429,7 +429,7 @@
     z-index: 9;
   }
   .upper__content {
-    padding: 10rem 1.8rem 0;
+    padding: 0rem 1.8rem 4.2rem;
   }
  .home__header-content {
    padding: 2rem;
@@ -512,7 +512,7 @@
   top: unset;
   transform: none;
   left: unset;
-  margin-bottom: -10rem;
+  margin-bottom: 0rem;
  }
  .header__subtitle {
    margin-top: 1.8rem;
