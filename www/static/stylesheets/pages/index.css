@@ -323,16 +323,18 @@
 }
 
 .home__ctas .donate::after, .home__ctas .volunteer::after {
-  content: "▶";
+  content: "\f0da";
+  font-family: 'fontawesome';
   margin-left: 1.8rem;
   margin-right: -1.8rem;
-  font-size: 1.8rem;
+  font-size: 2.6rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   position: relative;
-  top: -2px;
+  top: 0;
+  left: -2px;
 }
 
 .home__news {

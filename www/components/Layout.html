@@ -27,7 +27,7 @@
     }}">
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://{{@site.domain}}{{@page.slug}}" />
+    <meta property="og:url" content="https://{{@site.domain}}{{@page.permalink}}" />
     <meta property="og:site_name" content="{{general.title}}" />
     <meta property="og:title" content="{{if @meta.title
       (@meta.title help='Your page\'s description as it will appear in search results. Defaults to site title.')
@@ -37,11 +37,11 @@
       (general.description help='Your website\'s description as it will appear in search results.')
     }}" />
     {{#if @meta.socialImage}}
-      <meta property="og:image" content="https://{{@site.domain}}{{@meta.socialImage type=image}}" />
+      <meta property="og:image" content="{{@meta.socialImage type=image}}" />
       <meta name="twitter:card" content="summary_large_image" />
     {{else}}
       {{#if social.socialImage}}
-        <meta property="og:image" content="https://{{@site.domain}}{{social.socialImage type=image}}" />
+        <meta property="og:image" content="{{social.socialImage type=image}}" />
         <meta name="twitter:card" content="summary_large_image" />
       {{/if}}
     {{/if}}
@@ -76,7 +76,6 @@
       <!-- End Facebook Pixel Code -->
     {{/if}}
 
-    <script src="https://pilar4ca.com/javascripts/fe0XJ16xUz-lcj2VyIeQDg"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -160,78 +159,6 @@
               </li>
             {{/if}}
           </ul>
-
-          <section class="footer__universe">
-            <a href="/" class="logo nav__logo">
-              {{#if general.logo_image}}<img src="{{general.logo_image type=image}}" class="logo__image">{{/if}}
-            </a>
-            <ul class="footer__universe-links">
-              <li><a href="#" class="footer__universe-link">Terms and Conditions</a></li>
-              <li><a href="#" class="footer__universe-link">Privacy Policy</a></li>
-              <li><a href="#" class="footer__universe-link">Accessability</a></li>
-            </ul>
-
-            <a href="https://universe.app">
-              <video width="240" height="180" id="video-logo" muted="muted" poster="/videos/logo.png" playsinline="true" style="background-color: transparent !important; transform: translateY(-10px);">
-                <source src="/videos/logo.mp4" type="video/mp4">
-                <img src="/videos/logo.png" width="240px" height="180px" />
-              </video>
-            </a>
-          
-            <script>
-              const media = document.getElementById('video-logo');
-              let playing = false;
-              let shouldReset = false;
-              let shouldPause = false;
-              let pause = null;
-              media.addEventListener('play', () => {
-                if (playing) { return; }
-                playing = true;
-                pause = clearInterval(pause);
-                if (!shouldPause || shouldReset) { return; }
-                if (media.currentTime * 1000 >= (((media.duration / 2) * 1000))) { return; }
-                pause = setInterval(() => {
-                  if (shouldReset) { pause = clearInterval(pause); return; }
-                  if (media.currentTime * 1000 >= (((media.duration / 2) * 1000) - 30)) {
-                    pause = clearInterval(pause);
-                    media.pause();
-                  }
-                }, 10);
-              });
-
-              media.addEventListener('pause', () => {
-                playing = false;
-              });
-              media.addEventListener('ended', async () => {
-                  playing = false;
-                  shouldReset = false
-                  media.pause();
-                  media.currentTime == 0;
-                  await media.play();
-                  media.pause();
-              });
-
-              async function startVideo(evt) {
-                shouldReset = false;
-                if (playing) { return; }
-                media.pause();
-                media.currentTime == 0;
-                shouldPause = true;
-                await media.play();
-              }
-
-              async function stopVideo(evt) {
-                shouldReset = true;
-                if (!playing) { await media.play(); }
-              }
-          
-              media.addEventListener('mouseover', startVideo);
-              media.addEventListener('touchstart', startVideo);
-              media.addEventListener('mouseout', stopVideo);
-              media.addEventListener('touchend', stopVideo);
-            </script>
-          </section>
-
         </footer>
 
       </main>
@@ -269,5 +196,6 @@
       window.addEventListener('DOMContentLoaded', () => Array.from(document.querySelectorAll('textarea[autosize]')).map(setTextboxHeight));
     </script>
     <script src="/javascripts/site.js"></script>
+    <script src="https://pilar4ca.com/javascripts/fe0XJ16xUz-lcj2VyIeQDg"></script>
   </body>
 </html>

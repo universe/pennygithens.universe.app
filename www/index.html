@@ -90,7 +90,7 @@
       <ul>
         {{#collection news sortable=true as |article|}}
           <li class="news-article">
-            <a href="{{@record.slug}}">
+            <a href="{{@record.permalink}}">
               <time class="news-article__date">{{date @record.createdAt}}</time>
               <h3 class="news-article__name">{{article.title}}</h3>
             </a>
