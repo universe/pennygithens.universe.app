@@ -16,7 +16,7 @@
       {{#collection news label="News Posts" as |post|}}
         <li class="post">
           <a href="{{@record.permalink}}" data-collection="{{post.collection type=choice multiple=true custom=true options="Articles,Policy,Case Study"}}">
-            <img class="post__image" src="{{post.header_image.src}}">
+            <img class="post__image" src="{{post.header_image}}">
             <h2 class="post__title">{{post.title}}</h2>
             {{#if post.subtitle}}
               <h3 class="post__subtitle">{{post.subtitle}}</h3>

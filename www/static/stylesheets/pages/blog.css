@@ -118,26 +118,35 @@
 
 .blog__section {
   max-width: var(--site-width);
+  min-height: calc(100vh - 42rem);
 }
+
 .blog__more {
   padding-top: 4.2rem;
   border-top: 1px solid rgba(0, 0, 0, .15);
   margin-top: 4.2rem;
 }
+
 @media (min-width: 980px) {
-  .post__title {
-    line-height: 1;
-    margin-bottom: 0.4rem;
+  .blog__section .post .post__title {
+    line-height: 1 !important;
+    margin-bottom: 0.4rem !important;
+    font-size: 1.8rem !important;
   }
-  .post__subtitle {
+
+  .blog__section {
+    padding: 0 0.8rem;
+  }
+
+  .blog__section .post .post__subtitle {
     line-height: 1;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
     margin-bottom: 0.8rem;
-    height: 3.6rem;
+    height: 2.8rem;
     opacity: .66;
   }
   .post:first-of-type .post__image, .post:nth-of-type(2) .post__image {
