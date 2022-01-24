@@ -20,6 +20,6 @@
     "stop": "forever stop $npm_package_vapid_url ; fuser ${npm_package_vapid_port}/tcp -k ;"
   },
   "dependencies": {
-    "@vapid/cli": "amiller-gh/vapid#1dfca2e"
+    "@universe/vapid": "^0.1.7"
   }
 }
