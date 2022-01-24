@@ -188,6 +188,9 @@
 
   .nav__social {
     margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav__menu-button {
