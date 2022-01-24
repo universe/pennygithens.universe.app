@@ -2,9 +2,9 @@
   <header class="section page__header page__header--hero">
     <img src="{{this.header_image type=image}}" class="page__header-image">
     <section class="page__header-content wysiwyg">
-      <h1>{{this.title}}</h1>
-      {{#if this.subtitle}}<h2>{{this.subtitle}}</h2>{{/if}}
-      {{this.header_text type=html images=true}}
+      {{~#if this.title}}<h1>{{this.title}}</h1>{{/if~}}
+      {{~#if this.subtitle}}<h2>{{this.subtitle}}</h2>{{/if~}}
+      {{~#if this.header_text}}{{this.header_text type=html images=true}}{{/if~}}
     </section>
   </header>
 

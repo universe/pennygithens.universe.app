@@ -54,7 +54,7 @@
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -1;
+  z-index: 0;
   margin: 0;
   object-fit: cover;
 }
@@ -67,12 +67,27 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 12rem;
+  z-index: 1;
+  color: black;;
 }
+
+.page__header--hero .page__header-content:empty {
+  display: none;
+}
+
 .page__header--hero .page__header-content h1 {
-  font-size: 3.8rem;
+  font-size: 4.2rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.page__header--hero .page__header-content h2 {
+  font-size: 3.2rem;
   line-height: 1.2;
   font-weight: 800;
 }
+
 .page__body {
   max-width: 82rem;
   display: block;
