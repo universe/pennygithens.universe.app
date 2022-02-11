@@ -115,8 +115,9 @@
   align-items: center;
 }
 
-.nav__donate {
-
+.nav__donate a {
+  background: var(--cta);
+  color: black;
 }
 
 .nav__get-involved .button {
@@ -133,7 +134,8 @@
 }
 
 .logo__image {
-  height: 6.4rem;
+  height: 100%;
+  padding: 1.2rem;
 }
 
 .nav__social {

@@ -52,8 +52,8 @@ fieldset.wide.volunteer__checkboxes {
 }
 
 .volunteer__checkboxes label {
-  font-size: 1.6rem !important;
-  padding-left: 3.2rem;
+  font-size: 1.8rem !important;
+  padding-left: 3.8rem;
   position: relative;
   opacity: 1 !important;
   display: -webkit-box;
@@ -76,11 +76,12 @@ fieldset.wide.volunteer__checkboxes {
 .volunteer__checkboxes label::before {
   content: "";
   position: absolute;
-  width: 2.4rem;
-  height: 2.4rem;
-  border: 2px solid white;
-  border-radius: 2px;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 2px solid currentColor;
+  border-radius: 4px;
   left: 0;
+  font-size: 2.4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,7 +91,7 @@ fieldset.wide.volunteer__checkboxes {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
+  color: currentColor;
   -webkit-transition: background-color .08s ease-in-out, color .08s ease-in-out;
   -o-transition: background-color .08s ease-in-out, color .08s ease-in-out;
   transition: background-color .08s ease-in-out, color .08s ease-in-out;
@@ -99,10 +100,7 @@ fieldset.wide.volunteer__checkboxes {
 .volunteer__checkboxes input:checked + label::before {
   content: "✔";
   position: absolute;
-  width: 2.4rem;
-  height: 2.4rem;
-  border: 2px solid white;
-  border-radius: 2px;
+  border: 2px solid currentColor;
   left: 0;
   background: transparent;
 }
@@ -225,7 +223,6 @@ main::before {
 }
 
 .volunteer__form fieldset label {
-  color: white;
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 4px;
