@@ -4,10 +4,30 @@
   flex-flow: row-reverse;
   justify-content: space-between;
   align-items: center;
-  --section-color: #265EC5;
+  --section-color: var(--primary);
   color: white;
   justify-content: center;
   padding: 4.2rem;
+}
+
+.page__header h1 {
+  text-align: center;
+}
+
+.page__header h1::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page__header h2 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-top: 1.8rem;
+  margin-bottom: 0;
+}
+
+.page__header h2::after {
+  display: none;
 }
 
 .page__title {
@@ -30,7 +50,6 @@
 
 .page__header-content {
   width: 100%;
-  max-width: 66%;
   text-align: center;
 }
 
@@ -89,10 +108,11 @@
 }
 
 .page__body {
-  max-width: 82rem;
+  max-width: 143rem;
   display: block;
   margin: 0 auto;
 }
+
 @media (max-width: 600px) {
   .page__header {
     flex-flow: column;

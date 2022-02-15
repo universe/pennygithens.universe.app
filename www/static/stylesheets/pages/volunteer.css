@@ -35,7 +35,7 @@ fieldset.wide.volunteer__checkboxes {
   display: grid;
   -ms-grid-columns: calc(50% - 0.9rem) 1.8rem calc(50% - 0.9rem);
   grid-template-columns: calc(50% - 0.9rem) calc(50% - 0.9rem);
-  grid-gap: 0.8rem 1.8rem;
+  grid-gap: 1.8rem;
   margin-bottom: 1.8rem;
 }
 
