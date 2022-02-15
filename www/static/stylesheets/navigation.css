@@ -183,6 +183,12 @@
     scroll-snap-points-x: repeat(100%);
   }
 
+  .logo__image {
+    max-width: 66%;
+    height: auto;
+    float: left;
+  }
+
   .nav__sub-menu {
     display: none !important;
   }
