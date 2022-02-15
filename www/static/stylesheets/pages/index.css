@@ -75,7 +75,6 @@
 .home__ctas .donate {
   background-color: var(--primary) !important;
   font-size: 2.4rem;
-  height: 4.8rem;
   line-height: 4.8rem;
   white-space: pre;
 }
@@ -83,7 +82,6 @@
 .home__ctas .volunteer {
   background-color: var(--secondary) !important;
   font-size: 2.4rem;
-  height: 4.8rem;
   line-height: 4.8rem;
   white-space: pre;
 }
@@ -274,19 +272,22 @@
 }
 
 .home__issues-description {
-  width: 45%;
+  width: 40%;
   padding: 1.8rem;
 }
 
 .home__issues .issues {
-  margin: 3.2rem 0;
   background: var(--primary);
   color: white;
   padding: 5.2rem;
-  grid-template-columns: auto auto;
+  grid-template-columns: unset;
   grid-gap: 1.8rem;
   margin: 0;
-  flex-grow: 1;
+  flex-grow: unset;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  font-size: 2.4rem;
 }
 
 .home__issues .issue {

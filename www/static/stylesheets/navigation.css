@@ -118,11 +118,15 @@
 .nav__donate a {
   background: var(--cta);
   color: black;
+  padding: 0 2.4rem;
+  font-size: 1.7rem;
+  margin-left: 2.4rem;
+  white-space: pre;
 }
 
 .nav__get-involved .button {
-  background: var(--secondary);
-  color: white;
+  background: rgba(255,255,255,.9);
+  color: var(--secondary);
   padding: 0 2.4rem;
   font-size: 1.7rem;
   margin-left: 2.4rem;
