@@ -426,6 +426,7 @@
   .home__ctas .email-form {
     flex-flow: column !important;
     gap: 0.8rem;
+    padding-left: 1.8rem;
   }
 }
 

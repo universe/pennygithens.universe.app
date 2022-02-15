@@ -14,17 +14,17 @@
   <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_{{mailchimp.user_id}}_{{mailchimp.audience_id}}" tabindex="-1" value=""></div>
   {{#if (mailchimp.enable_name type="choice" help="Collect names in your mailchimp form.")}}
     <div class="email-form__section">
-      <input type="text" placeholder="First Name" name="FNAME" />
-      <input type="text" placeholder="Last Name" name="LNAME" />
+      <input type="text" placeholder="First Name" name="firstName" />
+      <input type="text" placeholder="Last Name" name="lastName" />
     </div>
   {{/if}}
   {{#if (mailchimp.enable_phone type="choice" help="Collect telephone numbers in your mailchimp form.")}}
     <div class="email-form__section">
-      <input type="tel" placeholder="(123) 456-7890" name="PHONE" />
+      <input type="tel" placeholder="(123) 456-7890" name="tel" />
     </div>
   {{/if}}
   <div class="email-form__section">
-    <input type="email" placeholder="your@email.com" name="EMAIL" />
+    <input type="email" placeholder="your@email.com" name="email" />
     <input type="submit" class="subscribe button" value="Subscribe" />
   </div>
 </form>

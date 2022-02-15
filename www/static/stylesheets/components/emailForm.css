@@ -26,6 +26,7 @@
   appearance: none;
   border-radius: 2px;
   font-size: 2.2rem;
+  line-height: 1.4;
 }
 
 .email-form input:first-of-type:not(:last-of-type) {

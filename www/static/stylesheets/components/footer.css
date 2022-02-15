@@ -77,7 +77,15 @@
   grid-column: 3;
 }
 
-.footer__donate a { display: block; }
+.footer__donate a {
+  display: block;
+  background: var(--cta);
+  color: var(--primary);
+}
+
+.footer__donate a:hover {
+
+}
 
 .footer__social {
   grid-column: 3;
