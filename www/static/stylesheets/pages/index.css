@@ -46,12 +46,13 @@
 .header__title {
   color: #fff;
   text-transform: uppercase;
-  line-height: 1.6;
+  line-height: 1.4;
   display: inline;
-  font-size: 5.2rem;
+  font-size: 6.2rem;
   max-width: 84rem;
   border-bottom: 6px solid var(--cta);
   text-shadow: 0px 3px 1.2rem rgba(0,0,0,.33);
+  letter-spacing: -1px;
 }
 
 .header__subtitle {
@@ -436,7 +437,7 @@
     padding: 3.2rem 0;
   }
   .header__title {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
   }
   .home__about-text {
     margin: 0 !important;
