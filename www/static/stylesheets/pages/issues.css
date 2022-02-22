@@ -15,6 +15,7 @@
   font-size: 3.8rem;
   line-height: 1.2;
   font-weight: 800;
+  color: white;
 }
 .issues__header-content {
   width: 55.6rem;
@@ -94,6 +95,6 @@
     width: 100%;
  }
  .page__body {
-  padding: 0 1.8rem;
+  padding: 1.8rem;
  }
 }

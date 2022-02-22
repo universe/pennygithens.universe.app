@@ -30,7 +30,7 @@ span[data-neutrino] {
 
 html {
   font-family: 'Open Sans', sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   box-sizing: border-box;
 }
 
@@ -177,7 +177,7 @@ select {
   }
 
   html {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   body {

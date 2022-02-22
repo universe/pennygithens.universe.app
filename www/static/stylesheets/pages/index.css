@@ -15,7 +15,11 @@
   height: 100%;
   position: absolute;
   left: 50%;
-  transform: translateX(-50vw);
+  -webkit-transform: translateX(-50vw);
+      -ms-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  background: -webkit-gradient(linear, left top, right top, from(var(--secondary)), to(transparent));
+  background: -o-linear-gradient(left, var(--secondary), transparent);
   background: linear-gradient(90deg, var(--secondary), transparent);
   z-index: -1;
   mix-blend-mode: hard-light;
@@ -27,7 +31,7 @@
   display: block;
   flex-flow: column;
   margin-left: 6.2rem;
-  width: calc(60% + 6.2rem);
+  width: 50%;
   max-width: 82rem;
 }
 
@@ -76,15 +80,17 @@
 .home__ctas .donate {
   background-color: var(--primary) !important;
   font-size: 2.4rem;
-  line-height: 4.8rem;
   white-space: pre;
+  line-height: 1;
+  height: 5.2rem;
 }
 
 .home__ctas .volunteer {
   background-color: var(--secondary) !important;
   font-size: 2.4rem;
-  line-height: 4.8rem;
   white-space: pre;
+  line-height: 1;
+  height: 5.2rem;
 }
 
 .home__ctas .email-form {
@@ -147,6 +153,7 @@
   position: relative;
   color: black;
   padding-left: calc(33% + 1.2rem);
+  margin-bottom: 5.2rem;
 }
 
 .home__volunteer::before {
@@ -257,6 +264,10 @@
   flex-flow: row;
   color: white;
   padding: 0;
+}
+
+.home__issues h2 {
+  color: white;
 }
 
 .home__issues::after {
@@ -435,7 +446,9 @@
     display: none;
   }
   .home__volunteer {
-    padding: 3.2rem 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
   }
   .header__title {
     font-size: 4.8rem;
@@ -469,6 +482,8 @@
  }
  .home__header::after {
   content: "";
+  background-image: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(27%, var(--secondary)), color-stop(50%, transparent));
+  background-image: -o-linear-gradient(0, var(--secondary) 27%, transparent 50%);
   background-image: linear-gradient(0, var(--secondary) 27%, transparent 50%);
   background-size: cover;
   background-position: center;
@@ -478,9 +493,12 @@
   top: 0;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: -1;
-  box-shadow: 0 100vh 0 0 var(--secondary);
+  -webkit-box-shadow: 0 100vh 0 0 var(--secondary);
+          box-shadow: 0 100vh 0 0 var(--secondary);
  }
 
  .home__issues {
@@ -537,9 +555,6 @@
  }
  .header__subtitle {
    margin-top: 1.8rem;
+   max-width: unset;
  }
-
-  .home__volunteer {
-    overflow: hidden;
-  }
 }

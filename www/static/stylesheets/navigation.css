@@ -35,7 +35,7 @@
   padding: 13px 0;
   border: 8px solid transparent;
   border-width: 8px 6px;
-  color: var(--primary);
+  color: var(--cta);
   line-height: 0;
   font-weight: 900;
   text-shadow: 1px 0 0;
@@ -47,7 +47,7 @@
   content: "";
   width: 100%;
   height: 6px;
-  background: var(--primary);
+  background: var(--cta);
   position: absolute;
   left: 0;
   top: 0;
@@ -62,7 +62,7 @@
 .nav__links {
   list-style: none;
   display: flex;
-  margin-left: 2.4rem;
+  height: fit-content;
 }
 
 .nav__item {
@@ -183,6 +183,12 @@
     scroll-snap-points-x: repeat(100%);
   }
 
+  .logo__image {
+    max-width: 66%;
+    height: auto;
+    float: left;
+  }
+
   .nav__sub-menu {
     display: none !important;
   }
@@ -261,6 +267,7 @@
     min-height: 0;
     padding: 5.2rem 1.8rem 2.4rem;
     margin: 0;
+    background: white;
   }
 
   .section.home__about .button {

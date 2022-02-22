@@ -12,6 +12,7 @@
 
 .page__header h1 {
   text-align: center;
+  color: white;
 }
 
 .page__header h1::after {
@@ -24,6 +25,7 @@
   font-weight: 400;
   margin-top: 1.8rem;
   margin-bottom: 0;
+  color: white;
 }
 
 .page__header h2::after {
@@ -108,7 +110,7 @@
 }
 
 .page__body {
-  max-width: 143rem;
+  max-width: 102.4rem;
   display: block;
   margin: 0 auto;
 }
