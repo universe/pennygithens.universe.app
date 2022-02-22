@@ -63,6 +63,7 @@
   list-style: none;
   display: flex;
   height: fit-content;
+  align-items: center;
 }
 
 .nav__item {
@@ -111,8 +112,20 @@
 .nav__social .social {
   list-style: none;
   display: flex;
+  flex-flow: column;
   height: 100%;
   align-items: center;
+
+  gap: 0.8rem;
+  margin: 0 0 0 1.8rem;
+}
+
+.nav__social .social-icon {
+  margin: 0;
+}
+
+.nav__donate {
+  height: fit-content;
 }
 
 .nav__donate a {
@@ -131,6 +144,7 @@
   font-size: 1.7rem;
   margin-left: 2.4rem;
   white-space: pre;
+  height: fit-content;
 }
 
 .logo {
@@ -195,6 +209,8 @@
 
   .nav__social .social {
     justify-content: center;
+    flex-flow: row;
+    gap: 2.4rem;
   }
 
   .main {
