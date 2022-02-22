@@ -93,6 +93,10 @@
   text-align: left;
 }
 
+.footer__social .nav__social .social-icon {
+  margin-right: 1.8rem;
+}
+
 .footer__disclosures {
   grid-column: 2;
   grid-row-start: 1;
