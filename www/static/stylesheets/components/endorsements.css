@@ -1,7 +1,7 @@
 .endorsements {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 18rem);
+  grid-template-columns: repeat(4, 19.6rem);
   grid-gap: 1.2rem;
   margin-bottom: 4.8rem;
 }
@@ -15,12 +15,12 @@
 }
 
 .endorsement__name {
-  font-size: 2rem;
+  font-size: 2.4rem;
   text-transform: none;
 }
 
 .endorsement__title {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-family: var(--body-font);
   text-transform: none;
   color: inherit;
@@ -41,6 +41,10 @@
 .endorsement__quote {
   max-width: 28rem;
   margin: 1.2rem auto 0;
+  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.75;
 }
 
 .endorsement__quote::before {

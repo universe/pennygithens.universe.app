@@ -1,43 +1,34 @@
-.issues__body .issues {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 2.4rem;
-  text-align: left;
-}
-.issues__header {
-  display: flex;
-  flex-flow: row-reverse;
-  justify-content: center;
-  align-items: center;
-}
-.issues__header h1 {
-  font-size: 3.8rem;
-  line-height: 1.2;
-  font-weight: 800;
-  color: white;
-}
-.issues__header-content {
-  width: 55.6rem;
-}
-.issues__header-image {
-  width: calc(50% - 3.2rem);
-  margin-left: 3.2rem;
-  height: auto;
-  height: calc((var(--site-width) / 3) - 3.2rem);
-  background-size: 0.6rem 0.6rem;
-  object-fit: contain;
-}
-
 .issues__header {
   display: flex;
   flex-flow: row-reverse;
   justify-content: space-between;
   align-items: center;
-  --section-color: #265EC5;
+  --section-color: var(--primary);
   color: white;
   justify-content: center;
   padding: 4.2rem;
+}
+
+.issues__header h1 {
+  text-align: center;
+  color: white;
+}
+
+.issues__header h1::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.issues__header h2 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-top: 1.8rem;
+  margin-bottom: 0;
+  color: white;
+}
+
+.issues__header h2::after {
+  display: none;
 }
 
 .issues__title {
@@ -60,7 +51,6 @@
 
 .issues__header-content {
   width: 100%;
-  max-width: 66%;
   text-align: center;
 }
 
@@ -94,7 +84,7 @@
   .issues__header-content {
     width: 100%;
  }
- .page__body {
+ .issues__body {
   padding: 1.8rem;
  }
 }
