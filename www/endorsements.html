@@ -9,9 +9,10 @@
   </header>
 
   <section class="section endorsements__body">
+    <div class="endorsements__photos">
       {{#collate endorsements key="type" default="General Endorsements" as |type|}}
         <h3 class="endorsements__section-title">{{type.title}}</h3>
-        <ul class="endorsements">
+        <ul class="endorsements" data-title={{type.title}}>
           {{~#collection endorsements as |endorsement|~}}
             {{~#if endorsement.image~}}
               {{~#if (eq endorsement.type type.value)~}}
@@ -40,8 +41,14 @@
               {{~/if~}}
             {{~/if~}}
           {{~/collection~}}
-          </ul>
-          <ul class="endorsements">
+        </ul>
+        <script>if (!document.querySelector('.endorsements__photos [data-title="{{type.title}}"]').innerText.trim()) { document.querySelector('.endorsements__photos [data-title="{{type.title}}"]').classList.add('endorsements--hidden') }</script>
+      {{/collate}}
+    </div>
+    <div class="endorsements__no-photos">
+      {{#collate endorsements key="type" default="General Endorsements" as |type|}}
+        <h3 class="endorsements__section-title">{{type.title}}</h3>
+        <ul class="endorsements" data-title={{type.title}}>
           {{~#collection endorsements as |endorsement|~}}
             {{~#unless endorsement.image~}}
               {{~#if (eq endorsement.type type.value)~}}
@@ -71,7 +78,9 @@
             {{~/unless~}}
           {{~/collection~}}
         </ul>
+        <script>if (!document.querySelector('.endorsements__no-photos [data-title="{{type.title}}"]').innerText.trim()) { document.querySelector('.endorsements__no-photos [data-title="{{type.title}}"]').classList.add('endorsements--hidden') }</script>
       {{/collate}}
+    </div>
     <aside id="for-id-only-desc">for identification purposes only</aside>
   </section>
 </Layout>
